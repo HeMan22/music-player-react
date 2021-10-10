@@ -62,6 +62,15 @@ function chillHop() {
             active: false,
         },
         //ADD MORE HERE
+        {
+            name: "Leaving For Good",
+            artist: "Hanz",
+            cover: "https://chillhop.com/wp-content/uploads/2020/07/7a84488fd87082302cb69c05262f2f3f87e93018-1024x1024.jpg",
+            id: uuidv4(),
+            active: false,
+            color: ['#F3B187', '#65978C'],
+            audio: "https://mp3.chillhop.com/serve.php/?mp3=8264"
+        }
     ];
 }
 
