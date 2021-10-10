@@ -12,7 +12,7 @@ import data from './util';
 function App() {
 
   const [song, setSong] = useState(data());
-  const [currentSong, setCurrentSong] = useState(song[0]);
+  const [currentSong, setCurrentSong] = useState(song[1]);
 
 
   return (
