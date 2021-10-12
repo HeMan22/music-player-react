@@ -30,6 +30,11 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
     setSongInfo({ ...setSongInfo, currentTime: current, duration });
   };
 
+  const getTime = (time) => {
+    return (
+      Math.floor(time / 60) + ":" + ("0" + Math.floor(time % 60)).slice(-2)
+    );
+  };
   //State
   const [songInfo, setSongInfo] = useState({
     currentTime: null,
@@ -39,9 +44,9 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
   return (
     <div className="player">
       <div className="time-control">
-        <p>{songInfo.currentTime}</p>
+        <p>{getTime(songInfo.currentTime)}</p>
         <input type="range" />
-        <p>{songInfo.duration}</p>
+        <p>{getTime(songInfo.duration)}</p>
       </div>
       <div className="play-control">
         <FontAwesomeIcon
@@ -62,6 +67,7 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
         />
         <audio
           onTimeUpdate={timeUpdateHandler}
+          onLoadedMetadata={timeUpdateHandler}
           ref={audioRef}
           src={currentSong.audio}
         ></audio>
