@@ -7,6 +7,7 @@ const LibrarySong = ({
   id,
   audioRef,
   isPlaying,
+  setSongs,
 }) => {
   const songSelectHandler = () => {
     //Long Way of doing it
@@ -14,6 +15,24 @@ const LibrarySong = ({
     // setCurrentSong(selectedSong[0]);
     //Short Way of doing it
     setCurrentSong(song);
+
+    //Add Active State
+    const newSongs = songs.map((song) => {
+      if (song.id === id) {
+        return {
+          ...song,
+          active: true,
+        };
+      } else {
+        return {
+          ...song,
+          active: false,
+        };
+      }
+    });
+
+    setSongs(newSongs);
+
     //Check if the Song is playing
     if (isPlaying) {
       const playPromise = audioRef.current.play();
@@ -28,7 +47,10 @@ const LibrarySong = ({
   };
 
   return (
-    <div onClick={songSelectHandler} className={`library-song ${song.active ? 'selected' : ""}`}>
+    <div
+      onClick={songSelectHandler}
+      className={`library-song ${song.active ? "selected" : ""}`}
+    >
       <img alt={song.name} src={song.cover}></img>
       <div className="song-description">
         <h3>{song.name}</h3>
