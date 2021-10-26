@@ -1,3 +1,5 @@
+# This is just a simple React app implementing a music player for learning
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
