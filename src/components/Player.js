@@ -36,14 +36,7 @@ const Player = ({ audioRef, currentSong, isPlaying, setIsPlaying, setSongInfo, s
     //   }
     // }
     if (direction === "skip-forward") {
-      // setCurrentSong(songs[currentIndex + 1]);
-      if (songs.length === currentIndex + 1) {
-        setCurrentSong(songs[0]);
-      }
-      else {
-        setCurrentSong(songs[currentIndex + 1]);
-        console.log(audioRef.current);
-      }
+      setCurrentSong(songs[(currentIndex + 1) % songs.length]);
     }
     if (direction === "skip-back") {
       if (currentIndex === 0) {
