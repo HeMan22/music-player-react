@@ -35,16 +35,23 @@ const Player = ({ audioRef, currentSong, isPlaying, setIsPlaying, setSongInfo, s
     //     console.log(audioRef.current);
     //   }
     // }
+
+    // if (direction === "skip-back") {
+    //   if (currentIndex === 0) {
+    //     setCurrentSong(songs[songs.length - 1]);
+    //   }
+    //   else {
+    //     setCurrentSong(songs[currentIndex - 1]);
+    //   }
+    // }
+
+    //alternate Method (Best & Concise)
     if (direction === "skip-forward") {
       setCurrentSong(songs[(currentIndex + 1) % songs.length]);
     }
     if (direction === "skip-back") {
-      if (currentIndex === 0) {
-        setCurrentSong(songs[songs.length - 1]);
-      }
-      else {
-        setCurrentSong(songs[currentIndex - 1]);
-      }
+      // setCurrentSong(songs[(currentIndex - 1 + songs.length) % songs.length]);
+      setCurrentSong(songs[(currentIndex - 1) < 0 ? songs.length - 1 : currentIndex - 1]);
     }
   }
 
