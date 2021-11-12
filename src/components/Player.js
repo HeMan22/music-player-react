@@ -7,28 +7,25 @@ import {
   faPause,
 } from "@fortawesome/free-solid-svg-icons";
 
-const Player = ({ audioRef, currentSong, isPlaying, setIsPlaying, setSongInfo, songInfo, songs, setCurrentSong }) => {
+const Player = ({ audioRef, currentSong, isPlaying, setIsPlaying, setSongInfo, songInfo, songs, setCurrentSong, setSongs }) => {
 
   //UseEffect
 
   useEffect(() => {
     //Add Active State
     const newSongs = songs.map((song) => {
-      if (song.id === id) {
-        return {
-          ...song,
-          active: true,
-        };
+      if (song.id === currentSong.id) {
+        return { ...song, active: true };
       } else {
-        return {
-          ...song,
-          active: false,
-        };
+        return { ...song, active: false };
+
       }
     });
 
     setSongs(newSongs);
-  }, [currentSong])
+  }, [currentSong]);
+
+
 
   //EventHandlers
   const playSongHandler = () => {
