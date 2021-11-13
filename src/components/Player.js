@@ -6,6 +6,7 @@ import {
   faAngleRight,
   faPause,
 } from "@fortawesome/free-solid-svg-icons";
+import { playAudio } from "../util";
 
 const Player = ({ audioRef, currentSong, isPlaying, setIsPlaying, setSongInfo, songInfo, songs, setCurrentSong, setSongs }) => {
 
@@ -70,6 +71,7 @@ const Player = ({ audioRef, currentSong, isPlaying, setIsPlaying, setSongInfo, s
       // setCurrentSong(songs[(currentIndex - 1 + songs.length) % songs.length]);
       setCurrentSong(songs[(currentIndex - 1) < 0 ? songs.length - 1 : currentIndex - 1]);
     }
+    playAudio(isPlaying, audioRef);
   }
 
   const getTime = (time) => {

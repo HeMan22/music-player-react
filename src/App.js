@@ -7,7 +7,7 @@ import Nav from "./components/Nav";
 import "./styles/App.scss";
 
 //import util
-import data from "./util";
+import data from "./data";
 
 function App() {
   //Ref
