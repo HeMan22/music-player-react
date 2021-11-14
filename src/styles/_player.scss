@@ -13,7 +13,10 @@
 
   input {
     width: 100%;
-    padding: 1rem 0rem;
+    // padding: 1rem 0rem;
+    -webkit-appearance: none;
+    background: transparent;
+    cursor: pointer;
   }
   p {
     padding: 1rem;
